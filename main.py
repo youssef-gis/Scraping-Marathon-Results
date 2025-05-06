@@ -15,7 +15,7 @@ def scrape_hubertiming(rows, headers,title, type_result):
         row_td= [td.get_text(strip=True) for td in row_tds if 'splitCell' not in td.get('class', [])]
         row_cells.append(row_td)
 
-    row_cells= row_cells[6:]
+    row_cells= row_cells[5:]
     if len(row_cells) == 0:
          print("No data found in this table")
          return    
@@ -53,7 +53,7 @@ for row in rows:
 link_results = links[40:]
 
 driver= Chrome()
-for link in link_results[0:3]:
+for link in link_results[0:5]:
     print(f'----------------------{link}--------------------')
     driver.get(link)
     time.sleep(3)
@@ -93,6 +93,6 @@ for link in link_results[0:3]:
     # except Exception as e:
     #     print('No other tab results found', e)
 
-    #driver.close()
+    driver.close()
 
 
